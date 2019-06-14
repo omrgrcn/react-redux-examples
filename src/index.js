@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-const reducer = (state, action) => {
-    if (action.type === 'changeTheState') {
-        return action.payload.newState;
-    }
-    return 'state';
-}
+const userReducer = (state='', action) => state;
+const productReducer = (state=[], action) => state;
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const rootReducer = combineReducers({
+    products: productReducer,
+    user: userReducer
+});
+
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(() => {
     console.log('Store updated')
