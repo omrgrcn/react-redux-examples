@@ -13,7 +13,17 @@ const rootReducer = combineReducers({
     user: userReducer
 });
 
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(
+    rootReducer,
+    {
+        products:[{
+            name: 'Samsung',
+            type: 'Phone'
+        }],
+        user: 'Omer'
+    },
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 store.subscribe(() => {
     console.log('Store updated')
