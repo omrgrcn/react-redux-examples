@@ -13,7 +13,11 @@ const reducer = (state, action) => {
 }
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-console.log(store.getState());
+
+store.subscribe(() => {
+    console.log('Store updated')
+    console.log(store.getState());
+});
 
 const action = {
     type: 'changeTheState',
@@ -23,7 +27,6 @@ const action = {
 };
 
 store.dispatch(action);
-console.log(store.getState);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
