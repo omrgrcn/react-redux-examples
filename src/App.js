@@ -6,7 +6,9 @@ import { updateUser, getUsers } from './actions/user-actions';
 
 class App extends Component {
   componentDidMount() {
-    this.props.onGetUsers();
+    setTimeout(() => {
+      this.props.onGetUsers();
+    }, 2000)
   }
 
   onUpdateUser = () => {
@@ -31,12 +33,5 @@ const mapDispatchToProps = {
   onUpdateUser: updateUser,
   onGetUsers: getUsers
 };
-
-/* const mergeProps = (propsFromState,propsFromDispatch,ownProps) => {
-  console.log(propsFromState);
-  console.log(propsFromDispatch);
-  console.log(ownProps);
-  return {}
-}; */
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
