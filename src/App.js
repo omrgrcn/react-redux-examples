@@ -10,7 +10,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="App">
         <h2>{ this.props.user }</h2>
@@ -21,14 +20,18 @@ class App extends Component {
 }
 
 const mapStateToProps = (state,props) => {
-  return {
-    ...state,
-    myCount: props.count + 2
-  };
+  return state;
 };
 
 const mapDispatchToProps = {
   onUpdateUser: updateUser
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+const mergeProps = (propsFromState,propsFromDispatch,ownProps) => {
+  console.log(propsFromState);
+  console.log(propsFromDispatch);
+  console.log(ownProps);
+  return {}
+};
+
+export default connect(mapStateToProps,mapDispatchToProps,mergeProps)(App);
