@@ -29,17 +29,17 @@ const store = createStore(
 
 store.subscribe(() => {
     console.log('Store updated')
-    console.log(store.getState());
+    //console.log(store.getState());
 });
 
-const action = {
+/* const action = {
     type: 'changeTheState',
     payload: {
         newState: 'my new state'
     }
 };
 
-store.dispatch(action);
+store.dispatch(action); */
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
