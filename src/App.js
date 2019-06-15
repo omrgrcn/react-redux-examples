@@ -5,13 +5,8 @@ import { connect } from 'react-redux';
 import { updateUser } from './actions/user-actions';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.onUpdateUser = this.onUpdateUser.bind(this);
-  }
-  
-  onUpdateUser() {
-    this.props.dispatch(updateUser('Harun'));
+  onUpdateUser = () => {
+    this.props.onUpdateUser('Harun');
   }
 
   render() {
@@ -29,4 +24,8 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  onUpdateUser: updateUser
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
