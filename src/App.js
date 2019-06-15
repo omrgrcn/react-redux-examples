@@ -27,11 +27,11 @@ const mapDispatchToProps = {
   onUpdateUser: updateUser
 };
 
-const mergeProps = (propsFromState,propsFromDispatch,ownProps) => {
+/* const mergeProps = (propsFromState,propsFromDispatch,ownProps) => {
   console.log(propsFromState);
   console.log(propsFromDispatch);
   console.log(ownProps);
   return {}
-};
+}; */
 
-export default connect(mapStateToProps,mapDispatchToProps,mergeProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);
