@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { updateUser } from './actions/user-actions';
+import { updateUser, getUsers } from './actions/user-actions';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onGetUsers();
+  }
+
   onUpdateUser = () => {
     this.props.onUpdateUser('Harun');
   }
@@ -24,7 +28,8 @@ const mapStateToProps = (state,props) => {
 };
 
 const mapDispatchToProps = {
-  onUpdateUser: updateUser
+  onUpdateUser: updateUser,
+  onGetUsers: getUsers
 };
 
 /* const mergeProps = (propsFromState,propsFromDispatch,ownProps) => {
